@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import { ArrowIcon } from "assets/svg/ArrowIcon";
 
 import styles from "./styles.module.css";
+import { ArrowUpIcon } from "assets/svg/ArrowUpIcon";
 
 interface Options {
   value: string;
@@ -56,7 +57,8 @@ export const Select = ({
         onChange={({ target }) => handleOnChange(target.value)}
         placeholder={placeholder}
       />
-      <ArrowIcon />
+      {showModal ? <ArrowUpIcon /> : <ArrowIcon />}
+
       {showModal && (
         <ul className={styles.modal}>
           {options && handleFilter(options).length > 0 ? (
